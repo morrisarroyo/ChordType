@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/UI/ClickMarker.uss?fileID=7433441132597879392&amp;guid=f4c1c03ca3cbd4ac181137497798d4e8&amp;type=3#ClickMarker"/>
+    <ui:Image name="marker" source="project://database/Assets/Game/Art/cat-paw-simple.svg?fileID=7388822144124034973&amp;guid=111c53f7206124346934df0c15937204&amp;type=3#cat-paw-simple" picking-mode="Ignore" class="click-marker"/>
+</ui:UXML>

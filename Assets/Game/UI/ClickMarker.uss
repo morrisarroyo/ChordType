@@ -1,0 +1,8 @@
+:root {
+}
+
+.click-marker {
+    max-height: 20%;
+    aspect-ratio: 1;
+    flex-grow: 1;
+}

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9216508a9bccb9a4ea710690c0f47f71, type: 3}
+  m_Name: TestPrompts
+  m_EditorClassIdentifier: Assembly-CSharp::SpaceSeparatedData
+  ssvText: 'tion ation ment able ible over under into with fore less ness ship self
+    ever some where thing body phic phia phie phor sion cial tial ence ance arry
+    illy ally ette una meta para hypo hyper poly tele auto semi anti omni aero agro
+    arch form type logy nomy scle frac duct fect ject vect port miss tors tory gory
+    sume cide cise path math graph gram phyl phon phan tech mech chem bio geo theo
+    crat cracy gnom gnor scend cern vert vers serve sign line cycl cent pend tend
+    tens sens solv volv cept tain tent term cede ceed cess pose pone pare meter therm
+    macro micro multi trans inter intra extra ultra super subt sero mono hemi semi
+    quad quin octa deci centi milli phor pher noun verb adve vent press struct strac
+    fract rupt scribe script graphy cycle chron chrono photo phono proto astro hydro
+    aqua terra thera psych psycho neuro cardio derma ophth pharm aroma arche macro
+    facto narr mort bene malu clim glac stat stic menta mento meta ducto finan enter
+    under outer inner after again though where there those while short long light
+    dark hard soft deep wide tight right ture ward wise ever body side hood ward
+    fold fold cast hold most thero ling anceh cepti plex plus comp ply work shop
+    portu fortu clus clude plete preci preci dict ducti structu pressu aggra oppo
+    appr arriv admi adju affec effec effor activ reac imag illus consi exce excl
+    expe exper explo expre extra impro intera intere intero intro opera manag manip
+    marin miner polic polit popul posit possib power pressi previ probl proce produ
+    profe progr proto psych quant quart quest quick quiet radiu refer refor regul
+    relat relev relig remov repai reply repor requi reset retur revie '

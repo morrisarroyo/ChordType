@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=dd21832992590490084259042895904f&amp;type=3#MainMenu"/>
+    <ui:VisualElement name="main-menu" class="main-menu" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+        <ui:VisualElement style="flex-grow: 1; top: 0; left: 0; right: 0; bottom: 0;">
+            <ui:VisualElement name="spacer1" class="spacer" style="flex-grow: 1;"/>
+            <ui:Label text="Cat Type" class="title" style="align-self: center;"/>
+            <ui:VisualElement name="spacer2" class="spacer"/>
+            <ui:VisualElement name="button-container" style="align-items: center; bottom: 0; top: 0; justify-content: space-between; min-height: 40%; flex-grow: 1;">
+                <ui:Button name="play-button" text="Play" class="menu-button"/>
+                <ui:Button name="highscores-button" text="High Scores" class="menu-button"/>
+                <ui:Button name="settings-button" text="Settings" class="menu-button"/>
+                <ui:Button name="quit-button" text="Quit" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="spacer3" class="spacer"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Image style="background-image: url(&quot;project://database/Assets/Game/Art/cat-paw-simple.svg?fileID=7388822144124034973&amp;guid=111c53f7206124346934df0c15937204&amp;type=3#cat-paw-simple&quot;); background-size: 100px 100px; top: 0; left: 0; width: 100px; height: 100px; -unity-background-image-tint-color: rgb(219, 98, 98);"/>
+</ui:UXML>
