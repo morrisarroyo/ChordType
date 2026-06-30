@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/UI/Screens/High%20Score/HighScore.uss?fileID=7433441132597879392&amp;guid=70c54aa05b0d547f09a1a66a490314ed&amp;type=3#HighScore"/>
+    <ui:VisualElement class="score-entry" style="flex-direction: row; justify-content: space-between;">
+        <ui:Label text="TBD" name="entry-rank-label" class="score-label" style="width: 100px; min-width: 100px; max-width: 100px; flex-grow: 1;"/>
+        <ui:Label text="TBD" name="entry-name-label" class="score-label"/>
+        <ui:Label text="1900-01-01" name="entry-date-label" class="score-label"/>
+        <ui:Label text="NaN" name="entry-score-label" class="score-label" style="width: 20%; min-width: 20%; max-width: 20%; flex-grow: 1; -unity-text-align: upper-right;"/>
+    </ui:VisualElement>
+</ui:UXML>

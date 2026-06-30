@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneList
   MainMenu: {fileID: 102900000, guid: 9f4e9acb51e2d48ee9556de26dd41deb, type: 3}
   TestEncounter: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
+  mainMenuSceneName: MainMenuScene
+  testEncounterSceneName: EncounterScene

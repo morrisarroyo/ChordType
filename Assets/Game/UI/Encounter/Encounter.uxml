@@ -1,0 +1,51 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="EncounterStatsOverlay" src="project://database/Assets/Game/UI/Encounter/EncounterStatsPopup.uxml?fileID=9197481963319205126&amp;guid=5109156073be1454ab21dcaa984f4123&amp;type=3#EncounterStatsPopup"/>
+    <Style src="project://database/Assets/Game/UI/Encounter/Encounter.uss?fileID=7433441132597879392&amp;guid=0427faf6e709af44fb372a3f0512ba11&amp;type=3#Encounter"/>
+    <Style src="project://database/Assets/Game/UI/Game/Game.uss?fileID=7433441132597879392&amp;guid=2982bd557aab841119c8af738acc314c&amp;type=3#Game"/>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="Main" focusable="true" style="min-width: 100%; min-height: 100%; max-height: 100%; max-width: 100%; justify-content: space-between; background-color: rgb(41, 36, 23);">
+            <ui:VisualElement name="type-text-element" class="fit type-label-container">
+                <ui:VisualElement class="fit type-label-container">
+                    <ui:Label text="Type Result Here " name="history-prompt-window-label" class="prompt-window-label main-font type-label"/>
+                    <ui:Label text="Type Result Here " name="prompt-window-label" class="prompt-window-label main-font type-label" style="-unity-slice-type: tiled; word-spacing: 0;"/>
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; justify-content: center; align-content: center;">
+                    <ui:Label text="" name="type-window-label" class="type-window-label main-font type-label" style="-unity-slice-type: tiled; word-spacing: 0;"/>
+                    <ui:Image name="text-cursor-image" class="cursor" style="height: 70%; width: 5px; left: 10px; top: 15%; background-color: rgb(185, 185, 185); position: absolute; flex-grow: 1; transition-property: opacity; transition-timing-function: ease-in; transition-duration: 0.5s; transition-delay: 0.1s; bottom: 15%; min-height: 70%; max-height: 70%;"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                <ui:VisualElement name="all-scores-element" class="fit" style="position: absolute; left: 0; align-items: center;">
+                    <ui:VisualElement name="score-changes-element" style="flex-direction: row; justify-content: space-between;">
+                        <ui:Label text="0" name="add-score-label" class="score-label fit main-font correct-popup oversize2x" style="-unity-text-align: upper-right; color: rgb(0, 255, 0);"/>
+                        <ui:Label text="0" name="remove-score-label" class="score-label fit main-font mistake-popdown oversize2x" style="-unity-text-align: upper-right; color: rgb(255, 0, 0);"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="prompt-score-element" class="fit" style="flex-grow: 1; flex-direction: row; justify-content: flex-end; align-items: flex-start;">
+                        <ui:Label text="Prompt Score: " class="score-label fit main-font"/>
+                        <ui:Label text="0" name="prompt-score-label" class="score-label fit main-font" style="-unity-text-align: upper-right;"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="total-score-element" class="fit" style="flex-grow: 1; flex-direction: row; justify-content: flex-end; align-items: flex-start;">
+                        <ui:Label text="Total Score: " class="score-label fit main-font"/>
+                        <ui:Label text="0" name="total-score-label" class="score-label fit main-font" style="-unity-text-align: upper-right;"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="stats-element" class="fit" style="position: absolute; align-items: flex-end; right: 0;">
+                    <ui:VisualElement name="WPM" class="fit" style="flex-grow: 1; flex-direction: row; justify-content: flex-end; align-self: flex-end; align-items: flex-start;">
+                        <ui:Label text="WPM:" name="Label" class="score-label fit main-font"/>
+                        <ui:Label text="Label" name="words-per-minute-label" class="score-label fit main-font" style="-unity-text-align: upper-right;"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="CPM" class="fit" style="flex-grow: 1; flex-direction: row; justify-content: flex-end; align-items: flex-start;">
+                        <ui:Label text="CPM: " class="score-label fit main-font"/>
+                        <ui:Label text="Label" name="characters-per-minute-label" class="score-label fit main-font" style="-unity-text-align: upper-right;"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Mistakes" class="fit" style="flex-grow: 1; flex-direction: row; justify-content: flex-end; align-items: flex-start;">
+                        <ui:Label text="Mistakes: " class="score-label fit main-font"/>
+                        <ui:Label text="0" name="mistake-count-label" class="score-label fit main-font" style="-unity-text-align: upper-right;"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Button text="Restart" name="restart-button"/>
+        </ui:VisualElement>
+        <ui:Instance template="EncounterStatsOverlay" picking-mode="Ignore" class="full-screen-absolute" style="display: flex;"/>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,17 @@
+#encounter-stats-popup {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+}
+
+#encounter-stats-panel {
+    padding: 20px;
+    background-color: rgb(35, 35, 35);
+    border-radius: 8px;
+}

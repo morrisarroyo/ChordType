@@ -13,7 +13,7 @@ namespace Game.Systems.Input
         public void OnKeyUp(KeyUpEvent keyUpEvent)
         {
             // ev.character is only filled when in InputText mode (UI Toolkit must expect typing)
-            Debug.LogFormat("KeyUp: " + keyUpEvent.keyCode + " Character: " + keyUpEvent.character);
+            // Debug.LogFormat("KeyUp: " + keyUpEvent.keyCode + " Character: " + keyUpEvent.character);
             OnKeyUpped?.Invoke(keyUpEvent);
         }
 

@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057b4d04c4be840cfb4a214e399a871c, type: 3}
   m_Name: TestEncounterDefinition
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.EncounterDefinition
-  characterWidth: 21
+  baseFontSize: 32
+  characterWidthRatio: 0.7
+  maxPromptsPerEncounter: 3
   scorePerCharacter: 500
   promptPoolAsset: {fileID: 11400000, guid: 373e35e0bf064d7479e24552176f37df, type: 2}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}

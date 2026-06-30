@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Template name="HighScoreOverlay" src="project://database/Assets/Game/UI/HighScore/HighScoresOverlay.uxml?fileID=9197481963319205126&amp;guid=c78ec76639a814959858f61edb00312d&amp;type=3#HighScoresOverlay"/>
+    <ui:Template name="PromptCountSelectorPopup" src="project://database/Assets/Game/UI/Encounter/PromptCountSelectorPopup.uxml?fileID=9197481963319205126&amp;guid=33e0de604d4c74b3caee519ba55e452c&amp;type=3#PromptCountSelectorPopup"/>
+    <ui:Template name="SettingsOverlay" src="project://database/Assets/Game/UI/Settings/SettingsOverlay.uxml?fileID=9197481963319205126&amp;guid=3969d46ccb2fd4907949198d011ab4e2&amp;type=3#SettingsOverlay"/>
+    <Style src="project://database/Assets/Game/UI/MainMenu/MainMenu.uss?fileID=7433441132597879392&amp;guid=dd21832992590490084259042895904f&amp;type=3#MainMenu"/>
+    <Style src="project://database/Assets/Game/UI/HighScore/HighScore.uss?fileID=7433441132597879392&amp;guid=70c54aa05b0d547f09a1a66a490314ed&amp;type=3#HighScore"/>
+    <Style src="project://database/Assets/Game/UI/Game/Game.uss?fileID=7433441132597879392&amp;guid=2982bd557aab841119c8af738acc314c&amp;type=3#Game"/>
+    <ui:VisualElement name="main-menu" class="main-menu background" style="background-color: rgb(13, 22, 48);">
+        <ui:VisualElement style="flex-grow: 1; top: 0; left: 0; right: 0; bottom: 0;">
+            <ui:VisualElement name="spacer1" class="spacer" style="flex-grow: 1;"/>
+            <ui:Label text="Cat Type" name="Label" class="title game-title-text" style="align-self: center; -unity-text-outline-width: 5px; -unity-text-outline-color: rgb(139, 69, 19); color: rgb(210, 105, 30);"/>
+            <ui:VisualElement name="spacer2" class="spacer"/>
+            <ui:VisualElement name="button-container" style="align-items: center; bottom: 0; top: 0; justify-content: space-between; min-height: 40%; flex-grow: 1;">
+                <ui:Button name="play-button" text="Play" class="menu-button game-button"/>
+                <ui:Button name="highscores-button" text="High Scores" class="menu-button game-button"/>
+                <ui:Button name="settings-button" text="Settings" class="menu-button game-button"/>
+                <ui:Button name="quit-button" text="Quit" class="menu-button game-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="spacer3" class="spacer"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Image style="background-image: url(&quot;project://database/Assets/Game/Art/cat-paw-simple.svg?fileID=7388822144124034973&amp;guid=111c53f7206124346934df0c15937204&amp;type=3#cat-paw-simple&quot;); background-size: 100px 100px; top: 0; left: 0; width: 100px; height: 100px; -unity-background-image-tint-color: rgb(219, 98, 98);"/>
+    <ui:Instance template="HighScoreOverlay" name="highscores-container" picking-mode="Ignore" style="display: flex; top: 0; left: 0; right: 0; bottom: 0; position: absolute; flex-grow: 1;"/>
+    <ui:Instance template="SettingsOverlay" name="settings-container" picking-mode="Ignore" style="left: 0; right: 0; top: 0; bottom: 0; flex-grow: 1; display: flex; position: absolute;"/>
+    <ui:Instance template="PromptCountSelectorPopup" picking-mode="Ignore" name="prompt-count-selector-popup" class="full-screen-absolute" style="display: flex;"/>
+</ui:UXML>

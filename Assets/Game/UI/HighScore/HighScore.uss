@@ -1,0 +1,14 @@
+.score-entry {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.score-label {
+    font-size: 48px;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(210, 105, 30);
+    -unity-font-style: bold;
+}

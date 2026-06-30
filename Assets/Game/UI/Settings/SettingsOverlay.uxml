@@ -1,0 +1,39 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/UI/Settings/Settings.uss?fileID=7433441132597879392&amp;guid=8fa6fcd82ec3f49b7a2fbaae8580a5c7&amp;type=3#Settings"/>
+    <Style src="project://database/Assets/Game/UI/Game/Game.uss?fileID=7433441132597879392&amp;guid=2982bd557aab841119c8af738acc314c&amp;type=3#Game"/>
+    <ui:VisualElement name="settings-overlay" class="tint-overlay" style="background-color: rgba(0, 0, 0, 0.59); display: flex;">
+        <ui:VisualElement name="settings-panel" class="popup-background" style="width: 75%; height: 75%; background-color: rgb(139, 90, 43); justify-content: space-between;">
+            <ui:Label name="title" text="SETTINGS" class="game-header1-text align-text-center"/>
+            <ui:VisualElement name="setting-rows" style="flex-grow: 1;">
+                <ui:VisualElement name="VisualElement" class="setting-row" style="justify-content: space-between;">
+                    <ui:Label text="Master Volume" class="game-body-text label-fixed-width"/>
+                    <ui:SliderInt name="master-volume-slider" low-value="0" high-value="100" class="settings-slider-int"/>
+                    <ui:Label name="master-volume-label" class="game-body-text value-fixed-width"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="setting-row" style="justify-content: space-between;">
+                    <ui:Label text="Music Volume" class="game-body-text label-fixed-width"/>
+                    <ui:SliderInt name="music-volume-slider" low-value="0" high-value="100" class="settings-slider-int"/>
+                    <ui:Label name="music-volume-label" class="game-body-text value-fixed-width"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="setting-row" style="justify-content: space-between;">
+                    <ui:Label text="SFX Volume" class="game-body-text label-fixed-width"/>
+                    <ui:SliderInt name="sfx-volume-slider" low-value="0" high-value="100" class="settings-slider-int"/>
+                    <ui:Label name="sfx-volume-label" class="game-body-text value-fixed-width"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="setting-row" style="justify-content: space-between;">
+                    <ui:Label text="Text Size" class="game-body-text label-fixed-width"/>
+                    <ui:SliderInt name="text-size-slider" low-value="50" high-value="150" class="settings-slider-int"/>
+                    <ui:Label name="text-size-label" class="game-body-text value-fixed-width"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="setting-row">
+                    <ui:Label text="Fullscreen&#10;" class="game-body-text label-fixed-width"/>
+                    <ui:Toggle name="fullscreen-toggle" label="" class="game-body-text label-fixed-width"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement class="button-row">
+                <ui:Button name="settings-apply-button" text="Apply" class="game-button" style="width: auto;"/>
+                <ui:Button name="settings-close-button" text="Close" class="game-button" style="width: auto;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

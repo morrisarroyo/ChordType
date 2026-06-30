@@ -1,0 +1,14 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="PromptCountEntry" src="project://database/Assets/Game/UI/Encounter/PromptCountEntry.uxml?fileID=9197481963319205126&amp;guid=6dc0dde2f653a4ed9858b3818f4ae5b3&amp;type=3#PromptCountEntry"/>
+    <Style src="project://database/Assets/Game/UI/Game/Game.uss?fileID=7433441132597879392&amp;guid=2982bd557aab841119c8af738acc314c&amp;type=3#Game"/>
+    <Style src="project://database/Assets/Game/UI/MainMenu/PromptCountPopup.uss?fileID=7433441132597879392&amp;guid=06f74adca344a4f9b861560ac649f1ee&amp;type=3#PromptCountPopup"/>
+    <ui:VisualElement name="prompt-count-selector-popup" class="selector tint-overlay">
+        <ui:VisualElement name="prompt-count-panel" class="panel popup-background">
+            <ui:Label text="SELECT PROMPTS COUNT" name="header" class="game-header1-text align-text-center"/>
+            <ui:VisualElement name="prompt-count-entries-container" class="prompt-count-entries-container">
+                <ui:Instance template="PromptCountEntry" style="align-self: center;"/>
+            </ui:VisualElement>
+            <ui:Button text="Cancel" name="prompt-count-cancel-button" class="game-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

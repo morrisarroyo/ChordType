@@ -1,5 +1,4 @@
 using System;
-using Game.Core.GameManager;
 using Game.Data;
 using Game.Data._ScriptableObjectScripts;
 using Game.Systems.Encounter;
@@ -11,6 +10,7 @@ namespace Game.Systems.Score
     {
         private ScoreConfig _scoreConfig;
         
+        // TODO: Remove and replace access to whole encounter state when there is a score state added inside
         private EncounterState _encounterState;
 
         public ScoreController(ScoreConfig scoreConfig, EncounterState encounterState)
@@ -28,7 +28,7 @@ namespace Game.Systems.Score
         {
             // TODO: Expose and Improve Scoring and Calculations logic
             // Use Score Curve as a Multiplier; DeltaTime between keypress as time evaluator
-            int scoreToAdd = Mathf.RoundToInt(amount * _scoreConfig.scoreCurveData.curve.Evaluate(_encounterState.timeSinceLastKeyUp));
+            int scoreToAdd = Mathf.RoundToInt(amount * _scoreConfig.addScoreCurveData.curve.Evaluate(_encounterState.timeSinceLastKeyUp));
             
             _encounterState.AddScore(scoreToAdd);
         }
@@ -40,7 +40,7 @@ namespace Game.Systems.Score
         /// <param name="amount">How many points to remove</param>
         public void RemoveScore(int amount)
         {
-            // TODO: Figure out if point removal requires scaling as well?
+            int scoreToRemove = Mathf.RoundToInt(amount * _scoreConfig.removeScoreCurveData.curve.Evaluate(_encounterState.timeSinceLastKeyUp));
             _encounterState.RemoveScore(amount);
         }
 

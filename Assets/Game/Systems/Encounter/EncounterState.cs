@@ -6,6 +6,8 @@ namespace Game.Systems.Encounter
     public class EncounterState //, IScoreState
     {
         private bool _isStartingNewPrompt = true;
+        private int _promptIndex = 0;
+        public int PromptIndex => _promptIndex;
 
         public bool IsStartingNewPrompt
         {
@@ -35,19 +37,22 @@ namespace Game.Systems.Encounter
         
         
         
-        // TODO: Move to a ScoreInterface
+        // TODO: Move to a ScoreInterface/Score State
         private int _scoreToAdd = 0;
         public int ScoreToAdd => _scoreToAdd;
         private int _scoreToRemove = 0;
         public int ScoreToRemove => _scoreToRemove;
     
+        private int _promptScore = 0;
+        public int PromptScore => _promptScore;
+        
         private int _totalScore = 0;
         public int TotalScore => _totalScore;
     
         private bool _isCursorVisible = false;
         public bool IsCursorVisible => _isCursorVisible;
         
-        // >>>>>>>> TODO: Move to separate Stats data struct/class?
+        // >>>>>>>> TODO: Move to separate Stats data struct/class? TypeStatState
         private float _charactersPerMinute = 0.0f;
         public float CharactersPerMinute
         {
@@ -72,6 +77,8 @@ namespace Game.Systems.Encounter
         
         private int _currentPromptWordCount = 0;
         public int CurrentPromptWordCount => _currentPromptWordCount;
+        private int _correctsInCurrentPrompt = 0;
+        public int CorrectsInCurrentPrompt => _correctsInCurrentPrompt;
         private int _mistakesInCurrentPrompt = 0;
         public int MistakesInCurrentPrompt => _mistakesInCurrentPrompt;
         
@@ -79,6 +86,8 @@ namespace Game.Systems.Encounter
         public int EncounterCharacterCount => _encounterCharacterCount;
         private int _encounterWordCount = 0;
         public int EncounterWordCount => _encounterWordCount;
+        private int _encounterCorrectsCount = 0;
+        public int EncounterCorrectsCount => _encounterCorrectsCount;
         private int _encounterMistakesCount = 0;
         public int EncounterMistakesCount => _encounterMistakesCount;
         // >>>>>>>>><<< End Refactor out
@@ -91,12 +100,14 @@ namespace Game.Systems.Encounter
         
         public event Action<int> OnScoreToAddChanged;
         public event Action<int> OnScoreToRemoveChanged;
+        public event Action<int> OnPromptScoreChanged;
         public event Action<int> OnTotalScoreChanged;
         
         public event Action<bool> OnCursorVisibilityChanged;
 
         public event Action<float> OnCharactersPerMinuteChanged;
         public event Action<float> OnWordsPerMinuteChanged;
+        public event Action<int> OnCorrectsInCurrentPromptChanged;
         public event Action<int> OnMistakesInCurrentPromptChanged;
         
         
@@ -105,8 +116,8 @@ namespace Game.Systems.Encounter
             _scoreToAdd = value;
             OnScoreToAddChanged?.Invoke(value);
         
-            _totalScore += _scoreToAdd;
-            OnTotalScoreChanged?.Invoke(_totalScore);
+            _promptScore += _scoreToAdd;
+            OnPromptScoreChanged?.Invoke(_promptScore);
         }
         
         public void RemoveScore(int value)
@@ -114,12 +125,13 @@ namespace Game.Systems.Encounter
             _scoreToRemove = value;
             OnScoreToRemoveChanged?.Invoke(value);
         
-            _totalScore -= _scoreToRemove;
-            OnTotalScoreChanged?.Invoke(_totalScore);
+            _promptScore -= _scoreToRemove;
+            OnPromptScoreChanged?.Invoke(_promptScore);
         }
         
         public void ResetScore()
         {
+            _promptScore = 0;
             _totalScore = 0;
         }
         
@@ -128,11 +140,22 @@ namespace Game.Systems.Encounter
             _isCursorVisible = isCursorVisible;
             OnCursorVisibilityChanged?.Invoke(isCursorVisible);
         }
+        
+        public void IncrementCorrectsInCurrentPrompt()
+        {
+            _correctsInCurrentPrompt += 1;
+            OnCorrectsInCurrentPromptChanged?.Invoke(_correctsInCurrentPrompt);
+        }
 
         public void IncrementMistakesInCurrentPrompt()
         {
             _mistakesInCurrentPrompt += 1;
             OnMistakesInCurrentPromptChanged?.Invoke(_mistakesInCurrentPrompt);
+        }
+
+        public void ResetCorrectsInCurrentPrompt()
+        {
+            _correctsInCurrentPrompt = 0;
         }
 
         public void ResetMistakesInCurrentPrompt()
@@ -178,9 +201,20 @@ namespace Game.Systems.Encounter
         {
             _encounterCharacterCount += _typedText.Length;
             _encounterWordCount += _currentPromptWordCount;
+            _encounterCorrectsCount += _correctsInCurrentPrompt;
             _encounterMistakesCount += _mistakesInCurrentPrompt;
+            ++_promptIndex;
+            
+            _totalScore += _promptScore;
+            _promptScore = 0;
+            OnTotalScoreChanged?.Invoke(_totalScore);
             
             ResetPrompt();
+        }
+        
+        public void FinishEncounter()
+        {
+            
         }
         
         public void ResetPrompt()
@@ -188,7 +222,10 @@ namespace Game.Systems.Encounter
             ResetTypedText();
             
             _currentPromptWordCount = 0;
+            _correctsInCurrentPrompt = 0;            
             _mistakesInCurrentPrompt = 0;
+            
+            _promptScore = 0;
         }
         
         public void UpdateTimersForNewPrompt()

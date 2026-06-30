@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/UI/Game/Game.uss?fileID=7433441132597879392&amp;guid=2982bd557aab841119c8af738acc314c&amp;type=3#Game"/>
+    <Style src="project://database/Assets/Game/UI/Encounter/EncounterStats.uss?fileID=7433441132597879392&amp;guid=0f8d00b8ef6fd4217849e3acb04b1f6b&amp;type=3#EncounterStats"/>
+    <ui:VisualElement name="encounter-stats-popup" class="full-screen-absolute" style="background-color: rgba(0, 0, 0, 0.59); display: flex;">
+        <ui:VisualElement name="encounter-stats-panel" style="width: 75%; height: 75%; background-color: rgb(139, 90, 43); justify-content: space-between;">
+            <ui:Label text="ENCOUNTER STATS&#10;" name="header" class="game-header1-text align-text-center"/>
+            <ui:VisualElement name="entries-container" style="padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
+                <ui:VisualElement name="prompt-count" class="game-list">
+                    <ui:Label text="Prompt Count" class="game-body-text"/>
+                    <ui:Label text="999" name="prompt-count-label" class="game-body-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="total-characters" class="game-list">
+                    <ui:Label text="Total Characters" class="game-body-text"/>
+                    <ui:Label text="999" name="total-characters-label" class="game-body-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="correct-characters" class="game-list">
+                    <ui:Label text="Correct Characters" class="game-body-text"/>
+                    <ui:Label text="999" name="correct-characters-label" class="game-body-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="mistakes" class="game-list">
+                    <ui:Label text="Mistakes" class="game-body-text"/>
+                    <ui:Label text="999" name="mistakes-label" class="game-body-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="total-score" class="game-list">
+                    <ui:Label text="Total Score" class="game-body-text"/>
+                    <ui:Label text="999999" name="encounter-stats-total-score-label" class="game-body-text"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1;"/>
+            <ui:Button text="Close" name="encounter-stats-close-button" class="game-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

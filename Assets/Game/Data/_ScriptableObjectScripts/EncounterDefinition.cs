@@ -10,7 +10,10 @@ namespace Game.Data
     public class EncounterDefinition : ScriptableObject
     {
         // TODO: Move to a new separate EncounterConfig Data SO?
-        public float characterWidth = 21.0f;
+        public float baseFontSize = 32.0f;
+        public float characterWidthRatio = 0.7f;
+
+        public int maxPromptsPerEncounter = 3;
         
         public int scorePerCharacter = 100;
         

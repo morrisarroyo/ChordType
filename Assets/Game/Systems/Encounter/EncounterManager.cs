@@ -1,16 +1,17 @@
-using Game.Core.GameManager;
+using System;
+using Game.Core.Save;
 using Game.Data;
 using Game.Data._ScriptableObjectScripts;
+using Game.Managers;
 using Game.Systems.Input;
 using Game.Systems.Score;
-using Game.UI.EncounterUI;
+using Game.UI.Encounter;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 namespace Game.Systems.Encounter
 {
     // TODO: Improve finishing of game/round instance
-    // TODO: Make it so the game multiple rounds
     // --- Balatro has 3 rounds per boss battle (inclusive)
     
     public class EncounterManager : MonoBehaviour
@@ -20,6 +21,7 @@ namespace Game.Systems.Encounter
         
         private GameManager _gameManager;
         private InputManager _inputManager;
+        private SaveManager _saveManager;
         
         private ScoreController _scoreController;
         
@@ -61,10 +63,11 @@ namespace Game.Systems.Encounter
             EncounterInstance.OnEncounterEnded -= OnEncounterEnd;
         }
 
-        public void Initialize(GameManager gameManager)
+        public void Initialize(GameManager gameManager, SaveManager saveManager)
         {
             // reference injected instead of global access
             _gameManager = gameManager;
+            _saveManager = saveManager;
         }
         
         public void StartEncounter(EncounterDefinition encounterDefinition)
@@ -78,7 +81,7 @@ namespace Game.Systems.Encounter
 
             EncounterInstance.OnEncounterEnded += OnEncounterEnd;
             
-            encounterUI.Bind(EncounterInstance, encounterState, _inputManager);
+            encounterUI.Bind(EncounterInstance, encounterState, _inputManager, _saveManager.Data.settingsData);
             
             _gameManager.SetState(GameManager.GameState.InEncounter);
         }
@@ -92,7 +95,13 @@ namespace Game.Systems.Encounter
         {
             _inputManager.OnKeyUpped -= EncounterInstance.OnKeyUp;
             
+            // TODO: Change once SaveData has been improved with better encounter saving
+            _saveManager.Data.ProcessNewHighScore("Mine", EncounterInstance.GetEncounterScore());
+            _saveManager.Save();
+            
             EncounterInstance.DeleteInstance();
+
+            _gameManager.EndGame();
             Debug.Log("Encounter Ended");
         }
     }

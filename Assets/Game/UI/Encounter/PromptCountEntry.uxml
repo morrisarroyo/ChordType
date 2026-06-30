@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/UI/Game/Game.uss?fileID=7433441132597879392&amp;guid=2982bd557aab841119c8af738acc314c&amp;type=3#Game"/>
+    <ui:Button text="99" name="prompt-count-button" class="game-header1-text game-button" style="flex-grow: 1; border-top-left-radius: 10%; border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-bottom-left-radius: 10%; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(139, 69, 19); border-right-color: rgb(139, 69, 19); border-top-color: rgb(139, 69, 19); border-bottom-color: rgb(139, 69, 19); min-height: 150px; aspect-ratio: 0.8;"/>
+</ui:UXML>

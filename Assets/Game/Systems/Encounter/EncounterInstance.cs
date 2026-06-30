@@ -19,6 +19,7 @@ namespace Game.Systems.Encounter
         // UI or other systems can subscribe to update themselves
         public event Action OnEncounterEnded;
         public event Action OnPromptFinished;
+        public event Action OnFinalPromptFinished;
         public event Action OnEncounterPromptRefreshed;
         public event Action<char, Color> OnCharacterTyped;
         
@@ -48,6 +49,7 @@ namespace Game.Systems.Encounter
             _encounterState.IsStartingNewPrompt = true;
             
             _encounterState.ResetCurrentPromptWordCount();
+            _encounterState.ResetCorrectsInCurrentPrompt();
             _encounterState.ResetMistakesInCurrentPrompt();
             
             OnEncounterPromptRefreshed?.Invoke();
@@ -101,6 +103,7 @@ namespace Game.Systems.Encounter
             if (isCorrect)
             {
                 _scoreController.AddScore(_encounterDefinition.scorePerCharacter);
+                _encounterState.IncrementCorrectsInCurrentPrompt();
             }
             else
             {
@@ -166,18 +169,28 @@ namespace Game.Systems.Encounter
             OnPromptFinished?.Invoke();
             
             _encounterState.FinishPrompt();
-            
-            UpdateToNewPrompt();
-            
-            // TODO: Move to Finish Encounter once Encounters have more than Prompts
-            _scoreController.ResetScore();
+
+            if (_encounterState.PromptIndex + 1 < _encounterDefinition.maxPromptsPerEncounter)
+            {
+                UpdateToNewPrompt();
+            }
+            else
+            {
+                FinishLastPrompt();
+            }
+        }
+
+        public void FinishLastPrompt()
+        {
+            OnFinalPromptFinished?.Invoke();
         }
         
         public void FinishEncounter()
         {
-            FinishPrompt();
-            
             OnEncounterEnded?.Invoke();
+            
+            _encounterState.FinishEncounter();
+            _scoreController.ResetScore();
         }
         
         private void Validate()
@@ -196,6 +209,11 @@ namespace Game.Systems.Encounter
         public void DeleteInstance()
         {
             
+        }
+        
+        public int GetEncounterScore()
+        {
+            return _encounterState.TotalScore;
         }
     }
 }

@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Template name="HighScoreEntry" src="project://database/Assets/Game/UI/HighScore/HighScoreEntry.uxml?fileID=9197481963319205126&amp;guid=370ec51d005454aaba8e5bc813057347&amp;type=3#HighScoreEntry"/>
+    <Style src="project://database/Assets/Game/UI/HighScore/HighScore.uss?fileID=7433441132597879392&amp;guid=70c54aa05b0d547f09a1a66a490314ed&amp;type=3#HighScore"/>
+    <Style src="project://database/Assets/Game/UI/Game/Game.uss?fileID=7433441132597879392&amp;guid=2982bd557aab841119c8af738acc314c&amp;type=3#Game"/>
+    <ui:VisualElement name="highscores-overlay" class="tint-overlay" style="background-color: rgba(0, 0, 0, 0.59); display: flex;">
+        <ui:VisualElement name="highscores-panel" class="popup-background">
+            <ui:Label text="HIGH SCORES" name="header" class="game-header1-text align-text-center"/>
+            <ui:VisualElement name="entries-container">
+                <ui:Instance template="HighScoreEntry" name="TemplateContainer"/>
+            </ui:VisualElement>
+            <ui:Button text="Close" name="highscores-close-button" class="game-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
